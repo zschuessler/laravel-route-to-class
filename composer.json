@@ -1,0 +1,20 @@
+{
+    "name": "zschuessler/laravel-route-to-class",
+    "description": "A Laravel 5 view composer that will convert the current route to a body class. 'admin/product/5/edit' becomes 'admin-product-edit'",
+    "type": "library",
+    "license": "Public Domain",
+    "authors": [
+        {
+            "name": "Zachary Schuessler",
+            "email": "zlschuessler@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "RouteToClass\\": "src/"
+        }
+    },
+    "require": {
+        "illuminate/support": "5.3.*"
+    }
+}
