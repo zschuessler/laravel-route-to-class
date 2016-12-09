@@ -39,7 +39,7 @@ Zschuessler\RouteToClass\ServiceProvider::class,
 You now have access to a shared view variable `$route_body_class`. Use it in any of your views like so:
 
 ```php
-<body class="{{ $route_body_classes ))">
+<body class="{{ $route_body_classes }}">
 ```
 
 ## License
