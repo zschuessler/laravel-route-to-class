@@ -1,11 +1,10 @@
 <?php
 
-namespace Zschuessler;
+namespace Zschuessler\RouteToClass;
 
 use Illuminate\Support\Facades\View;
-use Illuminate\Support\ServiceProvider;
 
-class RouteBodyClass extends ServiceProvider
+class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     /**
      * Register bindings in the container.
