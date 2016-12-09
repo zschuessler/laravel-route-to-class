@@ -2,18 +2,23 @@
 
 namespace Zschuessler\RouteToClass;
 
-
 use Illuminate\Support\Facades\View;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     /**
-     * Register bindings in the container.
-     *
      * @return void
      */
     public function boot()
     {
+        /**
+         * Register View composer
+         *
+         * Share global view variable `$route_body_classes`, which is a unique body class
+         * inflected based on the route path.
+         *
+         * example: `/admin/products/25/edit` becomes `admin-products-edit`
+         */
         View::composer('*', function (\Illuminate\View\View $view) {
             $route = request()->route()->getPath();
 
@@ -30,18 +35,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             $clean = preg_replace("/[\/_|+ -]+/", '-', $clean);
 
             View::share('route_body_classes', $clean);
-
         });
-    }
-
-    /**
-     * Register the service provider.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
     }
 }
 
