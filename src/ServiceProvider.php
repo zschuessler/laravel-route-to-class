@@ -20,6 +20,12 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
          * example: `/admin/products/25/edit` becomes `admin-products-edit`
          */
         View::composer('*', function (\Illuminate\View\View $view) {
+
+            // Let app handle 404s
+            if (!request()->route()) {
+                return;
+            }
+
             $route = request()->route()->getPath();
 
             // Remove route parameters. product_id is removed here: `controller/product/{product_id}`
