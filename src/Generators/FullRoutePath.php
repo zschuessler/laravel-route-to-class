@@ -27,6 +27,7 @@ class FullRoutePath extends GeneratorAbstract
     {
         $path = $this->getRoute()->getPath();
 
+        // Return early if no route path exists (such as viewing homepage/index)
         if ('/' === $path) {
             return null;
         }

@@ -88,6 +88,10 @@ class UserTypeGenerator extends GeneratorAbstract
 Now when you use the `{{$generate_route_to_classes()}}` line in a view template, you will
 see the class "user-admin" - neat!
 
+See this file for a real-life example:
+
+https://github.com/zschuessler/laravel-route-to-class/blob/master/src/Generators/FullRoutePath.php
+
 ### Ad-Hoc Class Additions
 
 You can interact with the body classes directly by calling the `addClass` method on the
