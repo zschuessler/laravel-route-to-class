@@ -2,6 +2,16 @@
 
 namespace Zschuessler\RouteToClass;
 
+/**
+ * Class RouteToClass
+ *
+ * Generates a Laravel View Composer variable, `$route_body_classes`, which is comprised of body classes
+ * generated from any number of custom generators.
+ *
+ * @author Zachary Schuessler <zlschuessler@gmail.com
+ * @package Zschuessler\RouteToClass
+ * @see https://github.com/zschuessler/laravel-route-to-class
+ */
 class RouteToClass
 {
     /**
@@ -124,14 +134,16 @@ class RouteToClass
     public function generateClassString()
     {
         // Load all generators, sorted by priority
-        $generators = $this->generators
+        $generators = config('route2class')['generators'];
+
+        $generators = collect($generators)
             ->map(function($generatorClassName) {
                 $generator = new $generatorClassName;
                 $generator->setRoute($this->route);
 
                 return $generator;
             })
-        ->sortBy('priority');
+            ->sortBy('priority');
 
         // Run all generators
         $classes = $generators->map(function($generatorClass) {
