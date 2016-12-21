@@ -13,7 +13,7 @@ or use the ad-hoc API by interacting with the library singleton directly.
 
 ## Quickstart
 
-Require the package in your composer setup.
+**Require the package in your composer setup.**
 
 ```
 composer require zschuessler/laravel-route-to-class
