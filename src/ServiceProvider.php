@@ -48,9 +48,11 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
                 return;
             }
 
-            $routeToClass = app()['route2class'];
+            $view->with('generate_route_body_classes', function() {
+                $routeToClass = app()['route2class'];
 
-            View::share('route_body_classes', $routeToClass->generateClassString());
+                return $routeToClass->generateClassString();
+            });
         });
     }
 }

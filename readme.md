@@ -1,29 +1,25 @@
 # Laravel Routes to Body Class
 
-Quickly add a unique body class to your view based on your Laravel routes.
+Quickly add body classes to your Laravel app based on rules you set.
 
-## Example
+Example of implementations:
 
-You have a route defined for editing your products:
+1. Browsing as a guest might add `user-isGuest` as a class.
+2. Browsing an admin panel might add `admin-panel` as a class.
+3. All user profile routes might have `user-profile` as a class.
 
-```php
-Route::get(
-    '/admin/products/{product_id}/edit',
-    'ProductAdminController@getEdit'
-)
-```
+It's easy to write your own rules! You can either write your own generator classes
+or use the ad-hoc API by interacting with the library singleton directly.
 
-This library will add the class `admin-products-edit` as a shared view variable automatically.
+## Quickstart
 
-## Install
-
-### 1 - Require Package
+1. Require the package in your composer setup.
 
 ```
 composer require zschuessler/laravel-route-to-class
 ```
 
-### 2 - Add Service Provider to Your App
+2. Add the service provider to your app configuration
 
 Add the following line under the `providers` array key in *app/config.php*:
 
@@ -34,13 +30,86 @@ Add the following line under the `providers` array key in *app/config.php*:
 Zschuessler\RouteToClass\ServiceProvider::class,
 ```
 
-### 3 - Use It
+3. Publish the configuration file
 
-You now have access to a shared view variable `$route_body_class`. Use it in any of your views like so:
+Run the following command in the root directory of your project:
 
 ```php
-<body class="{{ $route_body_classes }}">
+php artisan vendor:publish --provider="Zschuessler\RouteToClass\ServiceProvider"
 ```
+
+You now have access to a shared view variable function `$generate_route_body_classes`.
+ 
+Use it in any of your views like so:
+
+```php
+{{$generate_route_body_classes()}}
+
+```
+
+## Implement Your Own Rules
+
+You can implement your own rules in one of two methods.
+
+### Create Generator File
+
+This is the preferred method since you will always know where your class modifiers (
+called generators) will live.
+
+First decide where you would like to keep your generators. For the purpose of this example
+we will use the following directory:
+
+`app/Providers/RouteToClass/UserTypeGenerator.php`
+
+All you have to do is extend the `GeneratorAbstract.php` file and implement a method
+which returns the class string. See below for a simple example:
+
+```php
+<?php
+
+namespace App\Providers\RouteToClass;
+
+use Zschuessler\RouteToClass\Generators\GeneratorAbstract;
+
+class UserTypeGenerator extends GeneratorAbstract
+{
+    public function generateClassName()
+    {
+        // Use your own logic here to determine user type
+        $userType = 'admin';
+
+        return 'user-' . $userType;
+    }
+}
+```
+
+Now when you use the `{{$generate_route_to_classes()}}` line in a view template, you will
+see the class "user-admin" - neat!
+
+### Ad-Hoc Class Additions
+
+You can interact with the body classes directly by calling the `addClass` method on the
+provider.
+ 
+Here's an example using the default Laravel project's routes file:
+ 
+ ```php
+Route::get('/', function () {
+    // Add static class as string
+    app()['route2class']->addClass('homepage');
+    
+    // Add class from anonymous function
+    app()['route2class']->addClass(function() {
+        // Your custom logic goes here
+        return 'my-anon-class-name';
+    });
+    
+    return view('welcome');
+});
+```
+
+You can call the `addClass` method anywhere - models, controllers, etc. Consider adding
+generator files instead, as it promotes application maintainability and reduces technical debt.
 
 ## License
 

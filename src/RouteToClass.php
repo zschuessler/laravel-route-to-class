@@ -151,11 +151,15 @@ class RouteToClass
         });
 
         // Allow any prior-set classes to take precedence over generators.
-        $classes->merge($this->classes);
+        $classes = $classes->merge($this->classes->all());
 
         $classString = $classes
             ->map(function($className) {
-                return array_values($className)[0];
+                if (is_array($className)) {
+                    return array_values($className)[0];
+                } else if (is_string($className)) {
+                    return $className;
+                }
             })
             ->implode(' ');
 
