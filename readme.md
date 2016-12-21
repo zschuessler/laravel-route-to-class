@@ -1,6 +1,6 @@
 ![Alt text](https://raw.githubusercontent.com/zschuessler/laravel-route-to-class/master/readme-screenshot.png "Screenshot")
 
-# Dyanmic Body Classes for Laravel
+# Dynamic Body Classes for Laravel
 
 Quickly add body classes to your Laravel app based on rules you set.
 
