@@ -1,8 +1,8 @@
-# Laravel Routes to Body Class
+![Alt text](https://raw.githubusercontent.com/zschuessler/laravel-route-to-class/master/readme-header.png "Screenshot")
+
+# Dyanmic Body Classes for Laravel
 
 Quickly add body classes to your Laravel app based on rules you set.
-
-![Alt text](https://raw.githubusercontent.com/zschuessler/laravel-route-to-class/master/readme-header.png "Screenshot")
 
 Example of implementations:
 
