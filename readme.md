@@ -85,8 +85,14 @@ class UserTypeGenerator extends GeneratorAbstract
 }
 ```
 
+Now add a reference to the generator in your `/config/route2class.php` configuration:
+
+```
+App\Providers\RouteToClass\UserTypeGenerator::class,
+```
+
 Now when you use the `{{$generate_route_to_classes()}}` line in a view template, you will
-see the class "user-admin" - neat!
+see the class `user-admin` - **neat**!
 
 See this file for a real-life example:
 
