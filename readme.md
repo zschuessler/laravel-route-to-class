@@ -13,13 +13,13 @@ or use the ad-hoc API by interacting with the library singleton directly.
 
 ## Quickstart
 
-1. Require the package in your composer setup.
+Require the package in your composer setup.
 
 ```
 composer require zschuessler/laravel-route-to-class
 ```
 
-2. Add the service provider to your app configuration
+Add the service provider to your app configuration
 
 Add the following line under the `providers` array key in *app/config.php*:
 
@@ -30,7 +30,7 @@ Add the following line under the `providers` array key in *app/config.php*:
 Zschuessler\RouteToClass\ServiceProvider::class,
 ```
 
-3. Publish the configuration file
+Publish the configuration file
 
 Run the following command in the root directory of your project:
 
