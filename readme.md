@@ -1,4 +1,4 @@
-![Alt text](https://raw.githubusercontent.com/zschuessler/laravel-route-to-class/master/readme-header.png "Screenshot")
+![Alt text](https://raw.githubusercontent.com/zschuessler/laravel-route-to-class/master/readme-screenshot.png "Screenshot")
 
 # Dyanmic Body Classes for Laravel
 
