@@ -25,6 +25,12 @@ class FullRoutePath extends GeneratorAbstract
 {
     public function generateClassName()
     {
+        $path = $this->getRoute()->getPath();
+
+        if ('/' === $path) {
+            return null;
+        }
+
         // Remove route parameters. product_id is removed here: `controller/product/{product_id}`
         $className = preg_replace("/\{([^}]+)\}/", '', $this->getRoute()->getPath());
 
