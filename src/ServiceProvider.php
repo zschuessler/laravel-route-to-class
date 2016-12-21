@@ -12,9 +12,12 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
-        // Merge config
+        // Config
+        $this->publishes([
+            __DIR__.'/config/route2class.php' => config_path('route2class.php')
+        ]);
         $this->mergeConfigFrom(
-            __DIR__.'/config/routetoclass.php', 'routetoclass'
+            __DIR__.'/config/route2class.php', 'route2class'
         );
 
         // Create app singleton
