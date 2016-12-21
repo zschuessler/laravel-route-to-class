@@ -19,7 +19,7 @@ Require the package in your composer setup.
 composer require zschuessler/laravel-route-to-class
 ```
 
-Add the service provider to your app configuration
+**Add the service provider to your app configuration**
 
 Add the following line under the `providers` array key in *app/config.php*:
 
@@ -30,13 +30,15 @@ Add the following line under the `providers` array key in *app/config.php*:
 Zschuessler\RouteToClass\ServiceProvider::class,
 ```
 
-Publish the configuration file
+**Publish the configuration file**
 
 Run the following command in the root directory of your project:
 
 ```php
 php artisan vendor:publish --provider="Zschuessler\RouteToClass\ServiceProvider"
 ```
+
+**Use In Layout**
 
 You now have access to a shared view variable function `$generate_route_body_classes`.
  
