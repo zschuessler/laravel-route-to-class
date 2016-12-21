@@ -111,6 +111,12 @@ Route::get('/', function () {
 You can call the `addClass` method anywhere - models, controllers, etc. Consider adding
 generator files instead, as it promotes application maintainability and reduces technical debt.
 
+## Demo Project
+
+The demo project below follows the examples outlined above:
+
+https://github.com/zschuessler/route2class-demo
+
 ## License
 
 This is public domain. Do what you want.
