@@ -50,6 +50,18 @@ class RouteToClass
     }
 
     /**
+     * Get Instance
+     *
+     * Returns the current object instance. Useful for when using facades.
+     *
+     * @return $this
+     */
+    public function getInstance()
+    {
+        return $this;
+    }
+
+    /**
      * Get Classes
      *
      * Gets internal classes property.
