@@ -12,7 +12,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
-        // Config
+        // Configs
         $this->publishes([
             __DIR__.'/config/route2class.php' => config_path('route2class.php')
         ]);
@@ -24,6 +24,11 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         $this->app->singleton('route2class', function () {
             return new RouteToClass();
         });
+
+        // Facade
+        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+        $loader->alias('Route2Class', \Zschuessler\RouteToClass\Facade::class);
+
     }
     /**
      * Bootstrap the application services.
@@ -56,4 +61,3 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         });
     }
 }
-
