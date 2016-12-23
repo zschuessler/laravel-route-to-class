@@ -54,7 +54,7 @@ class RouteToClass
      *
      * Gets internal classes property.
      *
-     * @return \Illuminate\Support\CollectionG
+     * @return \Illuminate\Support\Collection
      */
     public function getClasses()
     {
