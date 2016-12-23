@@ -42,13 +42,38 @@ php artisan vendor:publish --provider="Zschuessler\RouteToClass\ServiceProvider"
 
 **Use In Layout**
 
-You now have access to a shared view variable function `$generate_route_body_classes`.
+You can either use the included Blade directive, or access the Route2Class facade directly for
+outputting your classes.
+
+*Blade*
+
+Two important notes for using the Blade directive:
+
+1. The Blade directive will follow any caching solutions you have setup. This is great for production, but keep in mind
+on development you may be viewing cached classes when modifying generators.
+2. The Blade directive runs before all other view template code. As such, any calls to the Route2Class
+package in a view will not show up in your class list. 
+
+```php
+<body class="@route2class_generate_classes"></body>
+```
+
+*Facade*
+
+Facades are not cached in the manner Blade directives are, making them great for development
+environments. And because we aren't using a Blade directive, you can modify classes and generators
+within view templates too.
  
 Use it in any of your views like so:
 
 ```php
-{{$generate_route_body_classes()}}
+<?php
+// This is now possible, too:
+\Route2Class::addClass('test');
+?>
 
+
+<body class="{{ \Route2Class::generateClassString(); }}"></body>
 ```
 
 ## Implement Your Own Rules
@@ -87,16 +112,16 @@ class UserTypeGenerator extends GeneratorAbstract
 }
 ```
 
-Now add a reference to the generator in your `/config/route2class.php` configuration:
+Next add a reference to the generator in your `/config/route2class.php` configuration:
 
 ```
 App\Providers\RouteToClass\UserTypeGenerator::class,
 ```
 
-Now when you use the `{{$generate_route_to_classes()}}` line in a view template, you will
+Now when you call the facade or Blade directive in a view template, you will
 see the class `user-admin` - **neat**!
 
-See this file for a real-life example:
+See this file for a real-life generator example:
 
 https://github.com/zschuessler/laravel-route-to-class/blob/master/src/Generators/FullRoutePath.php
 
@@ -110,10 +135,10 @@ Here's an example using the default Laravel project's routes file:
  ```php
 Route::get('/', function () {
     // Add static class as string
-    app()['route2class']->addClass('homepage');
+    Route2Class::addClass('homepage');
     
     // Add class from anonymous function
-    app()['route2class']->addClass(function() {
+    Route2Class::addClass(function() {
         // Your custom logic goes here
         return 'my-anon-class-name';
     });
