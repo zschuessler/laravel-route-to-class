@@ -128,6 +128,5 @@ class RouteTest extends TestCase
     {
         $response = $this->route('GET', 'empty');
         $this->assertEmpty($response->getContent());
-
     }
 }

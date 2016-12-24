@@ -17,7 +17,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             __DIR__.'/config/route2class.php' => config_path('route2class.php')
         ]);
         $this->mergeConfigFrom(
-            __DIR__.'/config/route2class.php', 'route2class'
+            __DIR__.'/config/route2class.php',
+            'route2class'
         );
 
         // Create app singleton
@@ -28,7 +29,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         // Facade
         $loader = \Illuminate\Foundation\AliasLoader::getInstance();
         $loader->alias('Route2Class', \Zschuessler\RouteToClass\Facade::class);
-
     }
     /**
      * Bootstrap the application services.
@@ -50,7 +50,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
          * print your classes:
          * `\Route2Class::generateClassString()`
          */
-        \Blade::directive('route2class_generate_classes', function() {
+        \Blade::directive('route2class_generate_classes', function () {
             return \Route2Class::generateClassString();
         });
     }

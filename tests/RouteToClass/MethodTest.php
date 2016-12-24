@@ -8,7 +8,7 @@ use Zschuessler\RouteToClass\RouteToClass;
  */
 class MethodTest extends TestCase
 {
-    protected $rtc = NULL;
+    protected $rtc = null;
 
     protected function setUp()
     {
