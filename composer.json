@@ -1,20 +1,29 @@
 {
     "name": "zschuessler/laravel-route-to-class",
     "description": "A Laravel 5 view composer that will convert the current route to a body class. 'admin/product/5/edit' becomes 'admin-product-edit'",
+    "keywords": ["laravel", "framework","routes", "routing", "Zachary Schuessler", "zschuessler", "Simon White" , "Sekonda"],
     "type": "library",
     "license": "Public Domain",
     "authors": [
         {
             "name": "Zachary Schuessler",
             "email": "zlschuessler@gmail.com"
+        },
+        {
+            "name": "Simon White",
+            "email": "simondotwhite@gmail.com"
         }
     ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "5.3.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    },
     "autoload": {
         "psr-4": {
             "Zschuessler\\RouteToClass\\": "src/"
         }
     },
-    "require": {
-        "illuminate/support": "5.3.*"
-    }
 }
