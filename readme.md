@@ -13,6 +13,12 @@ Example of implementations:
 It's easy to write your own rules! You can either write your own generator classes
 or use the ad-hoc API by interacting with the library singleton directly.
 
+## Docs
+
+All contents of this readme are present here in more organized format:
+
+[https://laravel-route-to-class.readme.io/docs](https://laravel-route-to-class.readme.io/docs)
+
 ## Quickstart
 
 **Require the package in your composer setup.**
