@@ -25,15 +25,20 @@ class FullRoutePath extends GeneratorAbstract
 {
     public function generateClassName()
     {
-        $path = $this->getRoute()->getPath();
+        $route = $this->getRoute();
 
+        if(!$route) // if this route is error page (404..)
+            return 'error-404-page';
+
+        $path = $route->getPath();
+        
         // Return early if no route path exists (such as viewing homepage/index)
         if ('/' === $path) {
             return null;
         }
 
         // Remove route parameters. product_id is removed here: `controller/product/{product_id}`
-        $className = preg_replace("/\{([^}]+)\}/", '', $this->getRoute()->getPath());
+        $className = preg_replace("/\{([^}]+)\}/", '', $path);
 
         // Remove characters that aren't alpha, numeric, or dashes
         $className = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $className);
