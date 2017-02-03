@@ -149,7 +149,7 @@ class RouteToClass
         $generators = config('route2class')['generators'];
 
         $generators = collect($generators)
-            ->map(function($generatorClassName) {
+            ->map(function ($generatorClassName) {
                 $generator = new $generatorClassName;
                 $generator->setRoute($this->route);
 
@@ -158,7 +158,7 @@ class RouteToClass
             ->sortBy('priority');
 
         // Run all generators
-        $classes = $generators->map(function($generatorClass) {
+        $classes = $generators->map(function ($generatorClass) {
             return [get_class() => $generatorClass->generateClassName()];
         });
 
@@ -166,10 +166,10 @@ class RouteToClass
         $classes = $classes->merge($this->classes->all());
 
         $classString = $classes
-            ->map(function($className) {
+            ->map(function ($className) {
                 if (is_array($className)) {
                     return array_values($className)[0];
-                } else if (is_string($className)) {
+                } elseif (is_string($className)) {
                     return $className;
                 }
             })
