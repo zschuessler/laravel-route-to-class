@@ -30,7 +30,7 @@ class FullRoutePath extends GeneratorAbstract
         if(!$route) // if this route is error page (404..)
             return 'error-404-page';
 
-        $path = $route->getPath();
+        $path = $route->uri();
         
         // Return early if no route path exists (such as viewing homepage/index)
         if ('/' === $path) {
