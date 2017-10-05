@@ -16,5 +16,12 @@
     },
     "require": {
         "illuminate/support": "5.3.*||5.4.*||5.5.*"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Zschuessler\\RouteToClass\\ServiceProvider"
+            ]
+        }
     }
 }
