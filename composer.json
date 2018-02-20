@@ -2,7 +2,7 @@
     "name": "zschuessler/laravel-route-to-class",
     "description": "A Laravel 5 view composer that will convert the current route to a body class. 'admin/product/5/edit' becomes 'admin-product-edit'",
     "type": "library",
-    "license": "No Limit Public License",
+    "license": "NLPL",
     "authors": [
         {
             "name": "Zachary Schuessler",
