@@ -27,19 +27,6 @@ All contents of this readme are present here in more organized format:
 composer require zschuessler/laravel-route-to-class
 ```
 
-> If you do run the package on Laravel 5.5+, you can start using the package at this point. [package auto-discovery](https://medium.com/@taylorotwell/package-auto-discovery-in-laravel-5-5-ea9e3ab20518) takes care of the magic of adding the service provider.
-
-**Add the service provider to your app configuration**
-
-If you do not run Laravel 5.5 (or higher), then add the following line under the `providers` array key in *app/config.php*:
-
-```php
-/**
- * Custom Service Providers
- */
-Zschuessler\RouteToClass\ServiceProvider::class,
-```
-
 **Publish the configuration file**
 
 Run the following command in the root directory of your project:
