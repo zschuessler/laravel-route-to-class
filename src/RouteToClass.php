@@ -2,6 +2,8 @@
 
 namespace Zschuessler\RouteToClass;
 
+use Illuminate\Support\Str;
+
 /**
  * Class RouteToClass
  *
@@ -125,7 +127,7 @@ class RouteToClass
     /**
      * Sanitize CSS Class String
      *
-     * Currently a simple wrapper around the `str_slug` method in Laravel.
+     * Currently a simple wrapper around the `Str::slug` method in Laravel.
      *
      * @param $value string The class name to sanitize.
      *
@@ -133,7 +135,7 @@ class RouteToClass
      */
     public function sanitizeClassString($value)
     {
-        return str_slug($value);
+        return Str::slug($value);
     }
 
     /**
