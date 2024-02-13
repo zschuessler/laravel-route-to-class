@@ -1,3 +1,4 @@
+### We are waiting a PR to be approved and mereged to the main repo once done this will be deleted
 ![Alt text](https://raw.githubusercontent.com/zschuessler/laravel-route-to-class/master/readme-screenshot.png "Screenshot")
 
 # Dynamic Body Classes for Laravel
