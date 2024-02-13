@@ -1,12 +1,12 @@
 {
-    "name": "zschuessler/laravel-route-to-class",
-    "description": "A Laravel 5 view composer that will convert the current route to a body class. 'admin/product/5/edit' becomes 'admin-product-edit'",
+    "name": "salla/laravel-route-to-class",
+    "description": "A Laravel 5 view composer that will convert the current route to a body class. 'admin/product/5/edit' becomes 'admin-product-edit' which forked to enable support for laravel 10 a pr created by @mostafanabawy",
     "type": "library",
     "license": "NLPL",
     "authors": [
         {
             "name": "Zachary Schuessler",
-            "email": "zlschuessler@gmail.com"
+            "email": "zain@salla.sa"
         }
     ],
     "autoload": {
@@ -15,7 +15,7 @@
         }
     },
     "require": {
-        "illuminate/support": "5.3.*||5.4.*||5.5.*||5.6.*||5.7.*||5.8.*||^6.0||^7.0||^8.0||^9.0"
+        "illuminate/support": "5.3.*||5.4.*||5.5.*||5.6.*||5.7.*||5.8.*||^6.0||^7.0||^8.0||^9.0||^10.0"
     },
     "extra": {
         "laravel": {
